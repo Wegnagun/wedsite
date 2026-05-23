@@ -1,24 +1,9 @@
 
 name: Django-app workflow
 
-on:
-  push:
-    branches: [ main ]
-    ...
+on: [push]
 
 jobs:
-  # Собрать и отправить образ приложения на DockerHub
-  build:
-    runs-on: ubuntu-latest
-    steps:
-    - ...
-
-  # Деплой приложения на удалённый сервер
-  deploy:
-    runs-on: ubuntu-latest
-    needs: build # Не выполнять сразу, ждать, пока выполнится build
-    steps:
-    - ...
   
   build_and_push_to_docker_hub:
     name: Push Docker image to Docker Hub

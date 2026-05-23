@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+    <h2>Зарегистрировался новый гость!</h2>
+    <p><strong>ФИО:</strong> {{ guest.fio }}</p>
+    <p><strong>Подтверждение участия:</strong> {{ approval }}</p>
+    <p><strong>На чем будет добираться:</strong> {{ transfer }}</p>
+    <ul>
+        {% for drink in drinks_list %}
+            <li>{{ drink }}</li>
+        {% endfor %}
+    </ul>
+    {% if guest.other %}
+        <p><strong>Уточняющая информация:</strong> {{ guest.other }}</p>
+    {% endif %}
+    <p><strong>Дата подтверждения:</strong> {{ guest.created_date|date:"d.m.Y H:i" }}</p> 
+</body>
+</html>

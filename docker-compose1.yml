@@ -1,0 +1,31 @@
+services:
+  web:
+    build: .
+    restart: always
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/app
+      - static_value:/app/static/
+      - media_value:/app/media/
+      - sqlite_data:/app/db 
+    ports:
+      - "8000:8000"
+  
+  nginx:
+    image: nginx:1.21.3-alpine
+    ports:
+      - "80:80"
+
+    volumes:
+      - ./infra/default.conf:/etc/nginx/conf.d/ngnix.conf
+      - static_value:/var/html/static/
+      - media_value:/var/html/media/
+
+    depends_on:
+      # Контейнер nginx должен быть запущен после контейнера web
+      - web
+
+volumes:
+  sqlite_data:
+  static_value:
+  media_value:

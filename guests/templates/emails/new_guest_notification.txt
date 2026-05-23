@@ -1,0 +1,9 @@
+Зарегистрировался новый гость!
+
+ФИО: {{ guest.fio }}
+Подтверждение участия: {{ approval }}
+На чем будет добираться: {{ transfer }}
+{% if guest.other %}Уточняющая информация: {{ guest.other }}{% endif %}
+Выбранные напитки:
+{% for drink in drinks_list %}- {{ drink }}
+{% endfor %}

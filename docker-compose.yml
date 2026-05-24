@@ -21,6 +21,8 @@ services:
       - media_value:/usr/share/nginx/html/media/:ro
     depends_on:
       - web
+    env_file:
+      - ./.env
 
 volumes:
   static_value:

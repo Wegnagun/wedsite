@@ -44,18 +44,17 @@ jobs:
             cd wedsite|| exit 1
             sudo docker rmi -f wegnagun/weddingsite:latest || true
             sudo docker pull ${{ secrets.USER }}/weddingsite:latest
-            cat > .env <<EOF
-            KEY=${{ secrets.KEY }}
-            DB_ENGINE=${{ secrets.DB_ENGINE }}
-            DB_NAME=${{ secrets.DB_NAME }}
-            POSTGRES_USER=${{ secrets.POSTGRES_USER }}
-            POSTGRES_PASSWORD=${{ secrets.POSTGRES_PASSWORD }}
-            DB_HOST=${{ secrets.DB_HOST }}
-            DB_PORT=${{ secrets.DB_PORT }}
-            DBG=${{ secrets.DBG }}
-            HOSTS=${{ secrets.HOSTS }}
-            ORIGINS=${{ secrets.ORIGINS }}
-            EOF
+            touch .env
+            echo KEY="${{ secrets.KEY }}" >> .env
+            echo DB_ENGINE=${{ secrets.DB_ENGINE }} >> .env
+            echo DB_NAME=${{ secrets.DB_NAME }} >> .env
+            echo POSTGRES_USER=${{ secrets.POSTGRES_USER }} >> .env
+            echo POSTGRES_PASSWORD=${{ secrets.POSTGRES_PASSWORD }} >> .env
+            echo DB_HOST=${{ secrets.DB_HOST }} >> .env
+            echo DB_PORT=${{ secrets.DB_PORT }} >> .env
+            echo DBG=${{ secrets.DBG }} >> .env
+            echo HOSTS=${{ secrets.HOSTS }} >> .env
+            echo ORIGINS=${{ secrets.ORIGINS }} >> .env
             sudo docker-compose down
             sudo docker-compose up -d --build
   

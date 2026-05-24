@@ -41,7 +41,7 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           passphrase: ${{ secrets.PASSPHRASE }}
           script: |
-            cd /path/to/weddingsite || exit 1
+            cd wedsite|| exit 1
             sudo docker rmi -f wegnagun/weddingsite:latest || true
             sudo docker pull ${{ secrets.USER }}/weddingsite:latest
             cat > .env <<EOF

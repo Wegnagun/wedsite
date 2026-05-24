@@ -29,20 +29,30 @@ class Guest(models.Model):
 
 class Drinks(models.Model):
     """ Модель вида алкоголя """
-    sort = models.IntegerField(verbose_name = 'Для очерелности отображения', blank=True)
+    sort = models.IntegerField(
+        verbose_name = 'Для очередности отображения', 
+        blank=True, 
+        null=True, 
+        help_text='Число для сортировки отображения напитков'
+    )
     name = models.CharField(
         max_length=50,
         unique=True,
         verbose_name='Наименование алкоголя'
     )
-    chosen = models.ManyToManyField(Guest, related_name="chosen_alc", blank=True, verbose_name='Кто выбрал:')
-    verbose_name = 'Крепкие напитки'
+    chosen = models.ManyToManyField(
+        Guest, 
+        related_name="chosen_alc", 
+        blank=True, 
+        verbose_name='Кто выбрал:'
+    )
 
     def __str__(self):
         return self.name
     
     class Meta:
         verbose_name = 'Крепкие напитки'
-        verbose_name_plural = 'Крепкие напитки'    
+        verbose_name_plural = 'Крепкие напитки'
+        ordering = ['sort']
 
 

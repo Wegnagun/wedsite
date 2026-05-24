@@ -41,7 +41,7 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           passphrase: ${{ secrets.PASSPHRASE }}
           script: |
-            docker rmi $(docker images -q)
+            sudo docker rmi wegnagun/weddingsite:latest
             sudo docker pull ${{ secrets.USER }}/weddingsite:latest
             cd wedsite
             sudo docker-compose stop

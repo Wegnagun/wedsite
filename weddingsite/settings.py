@@ -9,9 +9,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.environ.get('KEY', 'enter your secret key')
 DEBUG = os.environ.get('DBG', False)
 
-ALLOWED_HOSTS = os.environ.get('HOSTS', 'добавьте адреса допустимых хостов')
-
-# Application definition
+ALLOWED_HOSTS = os.environ.get('HOSTS', ['127.0.0.1']).split(',')
+ALLOWED_ORIGINS = os.environ.get('ORIGINS', ['http://127.0.0.1']).split(',')
+CSRF_TRUSTED_ORIGINS = os.environ.get('ORIGINS', ['http://127.0.0.1']).split(',')
 
 INSTALLED_APPS = [
     'django.contrib.admin',

@@ -31,4 +31,4 @@
 - python manage.py migrate
 - python manage.py collectstatic
 - python manage.py createsuperuser
-- python manage.py python manage.py create_sample_drinks или python manage.py create_sample_drinks --file=path/to/your/file.json для указания другого файла
+- python manage.py create_sample_drinks или python manage.py create_sample_drinks --file=path/to/your/file.json для указания другого файла

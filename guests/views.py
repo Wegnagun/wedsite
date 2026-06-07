@@ -11,7 +11,7 @@ def guest_answer(request):
         if form.is_valid():
             guest = form.save()
             send_guest_register_notification(guest)
-            return redirect('guests')
+            #return redirect('guests')
     else:
         form = GuestAlcoMultiForm()
 

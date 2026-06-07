@@ -2,10 +2,6 @@
 
 Современный свадебный сайт на Django с контейнеризацией через Docker. Проект включает бэкенд (Django), веб‑сервер (Nginx) и готовую структуру для статического контента и медиа.
 
-![Python](https://img.shields.io/badge/python-3.11+-blue.svg)
-![Django](https://img.shields.io/badge/django-4.x-orange.svg)
-![Docker](https://img.shields.io/badge/docker-containerized-blue.svg)
-
 ## Обзор
 
 Проект позволяет быстро развернуть свадебный сайт с:
@@ -29,3 +25,10 @@
 ![Wedding Site Screenshot](docs/screenshot.jpg)
 
 ## Установка и запуск
+
+- sudo docker container ls
+- sudo docker exec -it idконтейнера /bin/sh
+- python manage.py migrate
+- python manage.py collectstatic
+- python manage.py createsuperuser
+- python manage.py python manage.py create_sample_drinks или python manage.py create_sample_drinks --file=path/to/your/file.json для указания другого файла

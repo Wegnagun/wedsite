@@ -39,7 +39,6 @@ def send_guest_register_notification(guest):
         'drinks_list': drinks_list
     })
 
-    # Список получателей (замените на реальные email)
     recipient_list = [
         'wegnagun@bk.ru',  # email администратора
     ]

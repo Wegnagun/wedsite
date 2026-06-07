@@ -4,11 +4,6 @@ from django.core.management.base import BaseCommand
 from guests.models import Drinks
 
 
-TABLES = [
-    (Drinks, 'ingredients.json')
-]
-
-
 class Command(BaseCommand):
     help = 'Создаёт примерные записи напитков в базе данных из JSON-файлов с использованием bulk_create'
 
@@ -22,7 +17,7 @@ class Command(BaseCommand):
         parser.add_argument(
             '--file',
             type=str,
-            default='data/drinks.json',
+            default='guests/data/drinks.json',
             help='Путь к JSON-файлу с данными (по умолчанию: drinks.json)',
         )
 

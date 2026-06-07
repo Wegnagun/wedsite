@@ -32,3 +32,9 @@
 - python manage.py collectstatic
 - python manage.py createsuperuser
 - python manage.py create_sample_drinks или python manage.py create_sample_drinks --file=path/to/your/file.json для указания другого файла
+send_mail(subject='Тема письма',message='Текст письма',from_email=settings.DEFAULT_FROM_EMAIL,recipient_list=['recipient@example.com'],fail_silently=False,
+)
+
+export EMAIL_PASSWORD="ваш_новый_16_значный_пароль"
+echo $EMAIL_PASSWORD
+python manage.py sendtestemail wegnagun@bk.ru
